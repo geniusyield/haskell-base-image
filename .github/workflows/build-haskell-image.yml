@@ -27,12 +27,10 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ghcr.io/${{ github.repository }}
-          build-args: |
-            GHC=${{ inputs.ghc-version }}
           tags: |
             # latest tag for the default branch:
             type=raw,value=${{ inputs.ghc-version }},enable={{is_default_branch}}
-      - name: ${{ github.ref == 'refs/heads/main' && 'Build and Push Docker image' || 'Build Docker image' }}
+      - name: ${{ github.ref == 'refs/heads/main' && 'Build and Push Docker image' || 'Build Docker image' }} (GHC v${{ inputs.ghc-version }})
         uses: docker/build-push-action@v5
         with:
           push: ${{ github.ref == 'refs/heads/main'}}

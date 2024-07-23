@@ -2,7 +2,7 @@ FROM debian:bullseye-slim
 
 ENV LANG C.UTF-8
 
-# common haskell + stack dependencies
+# common haskell dependencies:
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         autoconf \

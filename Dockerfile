@@ -97,5 +97,6 @@ RUN git clone --depth 1 --branch ${BLST_VERSION} https://github.com/supranationa
 
 ENV LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 ENV PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
+ENV PATH="/root/.cabal/bin:${PATH}"
 
 CMD ["ghci"]
